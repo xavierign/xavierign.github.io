@@ -1,66 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spectrum Miami 2025 — Materials</title>
-  <!-- TailwindCSS CDN for quick styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>Material for Spectrum Miami 2025</title>
+  <style>
+    @font-face {
+      font-family: 'DejaVu Sans';
+      src: local('DejaVu Sans'), url('https://cdnjs.cloudflare.com/ajax/libs/dejavu/2.37/dejavu-fonts-ttf-2.37/ttf/DejaVuSans.ttf') format('truetype');
+    }
+    body {
+      font-family: 'DejaVu Sans', sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    p.notice {
+      text-align: center;
+      font-style: italic;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .links {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .links a {
+      display: block;
+      margin: 10px 0;
+      color: #1a0dab;
+      text-decoration: none;
+    }
+    .links a::after {
+      content: ' (external)';
+      font-style: italic;
+      color: #888;
+    }
+    video {
+      display: block;
+      margin: 30px auto;
+      max-width: 100%;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <!-- Header -->
-  <header class="text-center py-12">
-    <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Spectrum Miami 2025 — Materials</h1>
-    <p class="mt-4 text-lg text-gray-600">🚧 This page is <span class="italic">under construction</span></p>
-  </header>
+<body>
 
-  <!-- Main Content Wrapper -->
-  <main class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+  <h1>Material for Spectrum Miami 2025</h1>
+  <p class="notice">This page is currently under construction. More content will be added soon.</p>
 
-    <!-- Notebook Link -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold mb-4">Interactive Notebook</h2>
-      <a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition" aria-label="Open the Colab notebook">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/></svg>
-        Open the Colab Notebook
-      </a>
-    </section>
+  <div class="links">
+    <a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank">
+      View notebook on Google Colab
+    </a>
+    <a href="https://arxiv.org/pdf/2102.11361" target="_blank">
+      View related paper on arXiv
+    </a>
+  </div>
 
-    <!-- Paper Link -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold mb-4">Research Paper</h2>
-      <a href="https://arxiv.org/pdf/2102.11361" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition" aria-label="Read the research paper">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-        Read the PDF
-      </a>
-    </section>
+  <video width="640" height="480" controls autoplay>
+    <source src="data/Presentacion_Xavier_Fusion2020.mp4" type="video/mp4">
+  </video>
 
-    <!-- Videos Section -->
-    <section class="mb-24">
-      <h2 class="text-2xl font-semibold mb-6">Videos</h2>
-      <div class="grid gap-8 md:grid-cols-3">
-        <video controls class="w-full aspect-video rounded-xl">
-          <source src="video1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+  <video width="640" height="480" controls autoplay>
+    <source src="data/Obra_Xavier_Fusion2020.mp4" type="video/mp4">
+  </video>
 
-        <video controls class="w-full aspect-video rounded-xl">
-          <source src="video2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+  <video width="640" height="480" controls autoplay>
+    <source src="data/IMG_5728.mp4" type="video/mp4">
+  </video>
 
-        <video controls class="w-full aspect-video rounded-xl">
-          <source src="video3.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="text-center py-8 text-sm text-gray-500">
-    &copy; 2025 Xavier Gonzalez
-  </footer>
 </body>
 </html>
 
