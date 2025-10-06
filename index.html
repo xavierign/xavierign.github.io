@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <title>Material for Spectrum Miami 2025</title>
   <style>
-body {
-  font-family: 'Trebuchet MS', 'Verdana', sans-serif;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  background-color: #f9f9f9;
-  color: #333;
-}
+    body {
+      font-family: 'Trebuchet MS', 'Verdana', sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
     h1 {
       text-align: center;
       margin-bottom: 10px;
@@ -37,10 +37,45 @@ body {
       font-style: italic;
       color: #888;
     }
-    video {
+    iframe {
       display: block;
       margin: 30px auto;
       max-width: 100%;
+      border: none;
+    }
+    /* ===== Photo grid styling ===== */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 30px 0 60px 0;
+    }
+    .photo-grid figure {
+      margin: 0;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #eee;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .25s ease;
+    }
+    .photo-grid figure:hover img {
+      transform: scale(1.03);
+    }
+    @media (max-width: 900px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .photo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -58,13 +93,51 @@ body {
     </a>
   </div>
 
-<iframe
-  width="100%"
-  height="480"
-  src="https://www.youtube.com/embed/xZo7P7f4RV8"
-  allowfullscreen>
-</iframe>
+  <iframe
+    width="100%"
+    height="480"
+    src="https://www.youtube.com/embed/xZo7P7f4RV8"
+    allowfullscreen>
+  </iframe>
+
+  <!-- ===== FaCells 5×5 Photo Grid ===== -->
+  <section class="gallery">
+    <h2 style="text-align:center;margin:10px 0 20px 0;">FaCells — 25 Samples</h2>
+    <div id="photoGrid" class="photo-grid" aria-label="Photo grid"></div>
+  </section>
+
+  <script>
+    const BASE = "data/photos/";
+    const files = [
+      "IMG_2632.JPG","IMG_2657.JPG","IMG_2656.JPG","IMG_2655.JPG","IMG_2654.JPG",
+      "IMG_2653.JPG","IMG_2652.JPG","IMG_2651.JPG","IMG_2650.JPG","IMG_2649.JPG",
+      "IMG_2647.JPG","IMG_2646.JPG","IMG_2645.JPG","IMG_2644.JPG","IMG_2643.JPG",
+      "IMG_2642.JPG","IMG_2641.JPG","IMG_2640.JPG","IMG_2639.JPG","IMG_2638.JPG",
+      "IMG_2637.JPG","IMG_2636.JPG","IMG_2635.JPG","IMG_2634.JPG","IMG_2633.JPG"
+    ];
+
+    // Shuffle the order randomly
+    for (let i = files.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [files[i], files[j]] = [files[j], files[i]];
+    }
+
+    // Create the grid
+    const grid = document.getElementById("photoGrid");
+    files.forEach(name => {
+      const fig = document.createElement("figure");
+      const a = document.createElement("a");
+      a.href = BASE + name;
+      a.target = "_blank";
+      const img = document.createElement("img");
+      img.src = BASE + name;
+      img.loading = "lazy";
+      img.alt = name;
+      a.appendChild(img);
+      fig.appendChild(a);
+      grid.appendChild(fig);
+    });
+  </script>
 
 </body>
 </html>
-
