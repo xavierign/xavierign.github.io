@@ -1,200 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Material for Spectrum Miami 2025</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FaCells: Teaching Machines the Language of Lines — Spectrum Miami</title>
   <style>
-    body {
-      font-family: 'Trebuchet MS', 'Verdana', sans-serif;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-      background-color: #f9f9f9;
-      color: #333;
+    :root{
+      --maxw: 1080px;
+      --bg: #0a0a0a;
+      --card: #121212;
+      --ink: #e8e8e8;
+      --muted: #a7a7a7;
+      --accent: #8ee3ff;
+      --preview-crop: 5%; /* increased from 3% to 5% */
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    p.notice {
-      text-align: center;
-      font-style: italic;
-      color: #666;
-      margin-bottom: 30px;
-    }
-    .links {
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .links a {
-      display: block;
-      margin: 10px 0;
-      color: #1a0dab;
-      text-decoration: none;
-    }
-    .links a::after {
-      content: ' (external)';
-      font-style: italic;
-      color: #888;
-    }
-    iframe {
-      display: block;
-      margin: 30px auto;
-      max-width: 100%;
-      border: none;
-    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";}
+    a{color:var(--accent);text-decoration: none;border-bottom:1px dashed rgba(142,227,255,.4)}
+    a:hover{border-bottom-color:transparent}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 20px 80px}
 
-    /* ===== Photo grid styling (Letter portrait tiles + 3% crop) ===== */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin: 30px 0 60px 0;
-    }
-    .photo-grid figure {
-      margin: 0;
-      aspect-ratio: 17 / 22; /* US Letter portrait ratio */
-      overflow: hidden;
-      border-radius: 12px;
-      background: #eee;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
-      display: flex;
-    }
-    .photo-grid a,
-    .photo-grid img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .photo-grid img {
-      object-fit: cover;
-      clip-path: inset(3% 3% 3% 3%); /* 3% crop all sides */
-      transition: transform .25s ease;
-    }
-    .photo-grid figure:hover img {
-      transform: scale(1.03);
-    }
-    @media (max-width: 900px) {
-      .photo-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    @media (max-width: 700px) {
-      .photo-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .photo-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    header.hero{display:grid;gap:14px;margin:12px 0 28px}
+    header .eyebrow{letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-size:.9rem}
+    h1{font-size:clamp(1.8rem,4.2vw,3rem);line-height:1.1;margin:0}
+    .subtitle{color:var(--muted);font-size:clamp(1rem,2.2vw,1.1rem)}
 
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid #ddd;
-      background: #f9f9f9;
-    }
-    footer a {
-      color: #1a0dab;
-      text-decoration: none;
-    }
-    footer ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-    footer li {
-      margin: 4px 0;
-    }
+    .pill{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(180deg,#1b1b1b,#0d0d0d);border:1px solid #272727;color:var(--ink);padding:8px 12px;border-radius:999px;font-size:.92rem}
+    .row{display:grid;gap:22px}
+
+    .card{background:var(--card);border:1px solid #222;border-radius:18px;padding:18px 18px 16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .card h2{margin:2px 0 8px;font-size:1.15rem}
+    .card p{color:#d8d8d8}
+    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    @media (max-width:860px){.grid-2{grid-template-columns:1fr}}
+
+    /* Gallery with strict Letter aspect ratio (8.5 x 11 portrait) */
+    .gallery{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));align-items:stretch}
+    .thumb{position:relative;background:#0b0b0b;border:1px solid #222;border-radius:16px;overflow:hidden;display:block;aspect-ratio: 11 / 8.5; /* Portrait letter frame */}
+    .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;/* crop 5% each side */clip-path: inset(var(--preview-crop));filter:contrast(102%) saturate(105%)}
+    .thumb .cap{position:absolute;left:10px;bottom:8px;color:#d0d0d0;font-size:.8rem;background:rgba(0,0,0,.45);padding:4px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;color:#dcdcdc}
+    .small{font-size:.95rem;color:#cfcfcf}
+    .note{color:#bfbfbf}
+    .spacer{height:8px}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,#2a2a2a,transparent);margin:22px 0}
+    footer{margin-top:28px;color:var(--muted);font-size:.92rem}
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Interactive Performance • Spectrum Miami 2025</div>
+      <h1>FaCells: Teaching Machines the Language of Lines</h1>
+      <div class="subtitle">A live plotter turns a neural network’s <span class="mono">line‑learned</span> “cells” into portraits — visit us at <strong>Booth <span id="booth">[number]</span></strong>.</div>
+      <div class="row" style="margin-top:6px">
+        <span class="pill" title="US‑Letter aspect enforced; previews cropped 5%">Letter‑ratio gallery · 5% crop</span>
+      </div>
+    </header>
 
-  <h1>Material for Spectrum Miami 2025</h1>
-  <p class="notice">This page is currently under construction. More content will be added soon.</p>
+    <section class="grid-2">
+      <article class="card">
+        <h2>What you’ll see</h2>
+        <p>
+          “FaCells” are portraits decomposed into <strong>15 facial attributes</strong>—arched
+          eyebrows, bangs, eyeglasses, and more. On site, a <em>plotter</em> performs like a second
+          pair of hands for the model, translating what the network “thinks” it knows into
+          <strong>physical lines on paper</strong>.
+        </p>
+        <div class="divider"></div>
+        <h2>How the model works</h2>
+        <p>
+          Unlike typical image/text systems, our neural network is trained <em>purely on lines</em>.
+          Each attribute becomes a <strong>cell</strong> in the network. It’s intentionally an
+          <em>imperfect learner</em>: it reflects human labeling biases (e.g., notions like
+          “attractive”) and reads no color—only patterns of stroke and contour. The point isn’t
+          perfection; it’s to probe what “understanding” means when a machine learns our categories.
+        </p>
+        <div class="divider"></div>
+        <h2>Why it matters</h2>
+        <p>
+          By letting the machine draw, we expose both the elegance and the limits of
+          data‑driven perception. Every portrait is a conversation starter about how culture,
+          bias, and tooling shape what machines learn.
+        </p>
+      </article>
 
-  <div class="links">
-    <a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank">
-      View notebook on Google Colab
-    </a>
-    <a href="https://arxiv.org/pdf/2102.11361" target="_blank">
-      View related paper on arXiv
-    </a>
-    <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">
-      CelebA Dataset
-    </a>
+      <aside class="card">
+        <h2>Say hi at the booth</h2>
+        <p>We’ll be creating <strong>unique FaCells portraits</strong> live and gifting some to visitors who join the conversation.</p>
+        <div class="spacer"></div>
+        <h2>Tech & references</h2>
+        <p class="small">
+          • Plotter‑driven line rendering using vector paths and Hershey‑style fonts.<br/>
+          • Python tooling and open typeface primitives.
+        </p>
+        <p class="small note">
+          Hershey fonts for Python: <a href="https://pypi.org/project/Hershey-Fonts/" target="_blank" rel="noopener">pip install <span class="mono">Hershey-Fonts</span></a>.
+        </p>
+        <p class="small note">
+          Dataset reference (contextual reading): <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank" rel="noopener">CelebA</a>.
+        </p>
+      </aside>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="card">
+      <h2>Gallery (Letter‑ratio, 5% preview crop)</h2>
+      <p class="small note">All previews are auto‑cropped by 5% on each edge and framed to the US‑Letter portrait ratio to match the physical drawings.</p>
+      <div class="gallery" id="gallery">
+        <!-- Drop your images here. Example thumbnails: -->
+        <a class="thumb" href="#"><img src="IMG_2632.JPG" alt="FaCells preview 1"><span class="cap">Preview 1</span></a>
+        <a class="thumb" href="#"><img src="IMG_2637.JPG" alt="FaCells preview 2"><span class="cap">Preview 2</span></a>
+        <a class="thumb" href="#"><img src="IMG_2644.JPG" alt="FaCells preview 3"><span class="cap">Preview 3</span></a>
+        <a class="thumb" href="#"><img src="IMG_2656.JPG" alt="FaCells preview 4"><span class="cap">Preview 4</span></a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 FaCells · Lines as a machine language. Built with ✦ care for Spectrum Miami.</div>
+    </footer>
   </div>
 
-  <iframe
-    width="100%"
-    height="480"
-    src="https://www.youtube.com/embed/xZo7P7f4RV8"
-    allowfullscreen>
-  </iframe>
-
-  <!-- ===== FaCells 5×5 Photo Grid ===== -->
-  <section class="gallery">
-    <h2 style="text-align:center;margin:10px 0 20px 0;">FaCells — 25 Samples</h2>
-    <div id="photoGrid" class="photo-grid" aria-label="Photo grid"></div>
-  </section>
-
-  <footer>
-    <p>
-      © 2025 Xavier Gonzalez — <em>FaCells: Teaching Machines the Language of Lines</em>
-    </p>
-    <p>This project incorporates elements from:</p>
-    <ul>
-      <li>
-        • <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">
-          CelebA Dataset
-        </a> — provided by MMLab, CUHK, used under research and non-commercial artistic terms.
-      </li>
-      <li>
-        • <a href="https://github.com/pfaedit/hershey" target="_blank">
-          Hershey Fonts
-        </a> — public-domain vector fonts used for rendering line drawings.
-      </li>
-    </ul>
-    <p>
-      All derived works are shared under the
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
-        Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
-      </a>.
-    </p>
-  </footer>
-
   <script>
-    const BASE = "data/photos/";
-    const files = [
-      "IMG_2632.JPG","IMG_2657.JPG","IMG_2656.JPG","IMG_2655.JPG","IMG_2654.JPG",
-      "IMG_2653.JPG","IMG_2652.JPG","IMG_2651.JPG","IMG_2650.JPG","IMG_2649.JPG",
-      "IMG_2647.JPG","IMG_2646.JPG","IMG_2645.JPG","IMG_2644.JPG","IMG_2643.JPG",
-      "IMG_2642.JPG","IMG_2641.JPG","IMG_2640.JPG","IMG_2639.JPG","IMG_2638.JPG",
-      "IMG_2637.JPG","IMG_2636.JPG","IMG_2635.JPG","IMG_2634.JPG","IMG_2633.JPG"
-    ];
-
-    // Shuffle the order randomly
-    for (let i = files.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [files[i], files[j]] = [files[j], files[i]];
-    }
-
-    // Create the grid
-    const grid = document.getElementById("photoGrid");
-    files.forEach(name => {
-      const fig = document.createElement("figure");
-      const a = document.createElement("a");
-      a.href = BASE + name;
-      a.target = "_blank";
-      const img = document.createElement("img");
-      img.src = BASE + name;
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.alt = name;
-      a.appendChild(img);
-      fig.appendChild(a);
-      grid.appendChild(fig);
-    });
+    // Optional: quick booth number setter
+    // Edit this once you know it; keeps the raw HTML tidy.
+    const BOOTH_NUMBER = "[number]"; // ← replace when confirmed
+    document.getElementById('booth').textContent = BOOTH_NUMBER;
   </script>
-
 </body>
 </html>
