@@ -43,7 +43,8 @@
       max-width: 100%;
       border: none;
     }
-    /* ===== Photo grid styling ===== */
+
+    /* ===== Photo grid styling (Letter portrait tiles + 3% crop) ===== */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -52,17 +53,22 @@
     }
     .photo-grid figure {
       margin: 0;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 17 / 22; /* US Letter portrait ratio */
       overflow: hidden;
       border-radius: 12px;
       background: #eee;
       box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+      display: flex;
     }
+    .photo-grid a,
     .photo-grid img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+    }
+    .photo-grid img {
+      object-fit: cover;
+      clip-path: inset(3% 3% 3% 3%); /* 3% crop all sides */
       transition: transform .25s ease;
     }
     .photo-grid figure:hover img {
@@ -76,6 +82,28 @@
     }
     @media (max-width: 480px) {
       .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #ddd;
+      background: #f9f9f9;
+    }
+    footer a {
+      color: #1a0dab;
+      text-decoration: none;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    footer li {
+      margin: 4px 0;
     }
   </style>
 </head>
@@ -91,7 +119,7 @@
     <a href="https://arxiv.org/pdf/2102.11361" target="_blank">
       View related paper on arXiv
     </a>
-      <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">
+    <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">
       CelebA Dataset
     </a>
   </div>
@@ -108,6 +136,31 @@
     <h2 style="text-align:center;margin:10px 0 20px 0;">FaCells — 25 Samples</h2>
     <div id="photoGrid" class="photo-grid" aria-label="Photo grid"></div>
   </section>
+
+  <footer>
+    <p>
+      © 2025 Xavier Gonzalez — <em>FaCells: Teaching Machines the Language of Lines</em>
+    </p>
+    <p>This project incorporates elements from:</p>
+    <ul>
+      <li>
+        • <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">
+          CelebA Dataset
+        </a> — provided by MMLab, CUHK, used under research and non-commercial artistic terms.
+      </li>
+      <li>
+        • <a href="https://github.com/pfaedit/hershey" target="_blank">
+          Hershey Fonts
+        </a> — public-domain vector fonts used for rendering line drawings.
+      </li>
+    </ul>
+    <p>
+      All derived works are shared under the
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+        Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+      </a>.
+    </p>
+  </footer>
 
   <script>
     const BASE = "data/photos/";
@@ -135,6 +188,7 @@
       const img = document.createElement("img");
       img.src = BASE + name;
       img.loading = "lazy";
+      img.decoding = "async";
       img.alt = name;
       a.appendChild(img);
       fig.appendChild(a);
