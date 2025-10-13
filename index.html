@@ -6,68 +6,65 @@
   <style>
     body {
       font-family: 'Trebuchet MS', 'Verdana', sans-serif;
-      max-width: 900px;
+      max-width: 850px;
       margin: 40px auto;
-      padding: 0 20px;
-      background-color: #f2f2f2;
+      padding: 0 25px;
+      background-color: #f7f7f7;
       color: #333;
       line-height: 1.6;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     h1 {
       text-align: center;
-      margin-bottom: 4px;
-      font-size: 2.2em;
+      margin-bottom: 5px;
+      font-size: 2.3em;
       font-weight: bold;
     }
     h2.subtitle {
       text-align: center;
       color: #555;
       font-weight: normal;
-      font-size: 1.2em;
+      font-size: 1.15em;
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
+    p, li {font-size: 1em;}
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 0.95em;
+      margin: 15px 0 25px 0;
+      font-size: 0.9em;
       background: #fff;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
     }
     th, td {
-      border: 1px solid #ccc;
-      padding: 8px 10px;
+      border: 1px solid #ddd;
+      padding: 6px 10px;
       text-align: left;
     }
-    th {
-      background-color: #eee;
-    }
+    th {background-color: #f0f0f0;}
+    td:nth-child(1){width:10%;}
+    td:nth-child(2){width:30%;}
+    td:nth-child(3){width:60%;}
     iframe {
       display: block;
-      margin: 30px auto;
+      margin: 40px auto;
       max-width: 100%;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
     }
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 10px;
-      margin: 30px 0 60px 0;
+      margin: 25px 0 60px 0;
     }
     .photo-grid figure {
       margin: 0;
       aspect-ratio: 17 / 22;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 8px;
       background: #eee;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
-      display: flex;
-      border: 0.5px solid #ccc;
+      border: 1px solid #ccc;
     }
     .photo-grid img {
       width: 100%;
@@ -76,19 +73,17 @@
       clip-path: inset(5% 5% 5% 5%);
       transition: transform .25s ease;
     }
-    .photo-grid figure:hover img {
-      transform: scale(1.03);
-    }
+    .photo-grid figure:hover img {transform: scale(1.03);}
     footer {
-      text-align: center;
+      text-align: left;
       font-size: 0.9em;
       color: #555;
       margin-top: 60px;
-      padding-top: 30px;
+      padding-top: 25px;
       border-top: 1px solid #ccc;
-      background: #f2f2f2;
-      border-radius: 0 0 12px 12px;
+      background: #f7f7f7;
     }
+    footer a {color: #1a0dab; text-decoration: none;}
   </style>
 </head>
 <body>
@@ -97,39 +92,33 @@
   <h2 class="subtitle">Teaching Machines the Language of Lines</h2>
 
   <p>
-    <strong>Spectrum Miami</strong>, booth <strong>#1112</strong>. The FaCells are essentially portraits of 15 different facial attributes. Each attribute corresponds to a neuron—a “cell”—in the last layer of a neural network trained to recognize them.
+    <strong>Spectrum Miami</strong>, booth <strong>#1112</strong> — The <em>FaCells</em> are portraits of 15 facial attributes learned by a neural network trained on line drawings. More than 200,000 images were converted into sets of lines — sequences of <em>(x, y)</em> points — and used as input for an LSTM model. Each attribute corresponds to one neuron, or “cell,” in the network’s final layer. By hacking the model, it can be made to <em>generate</em> attributes instead of just classifying them. The plotter connected to the system acts as a bridge between the digital and physical worlds, drawing each FaCell on paper as the network expresses what it has learned.
   </p>
 
   <table>
-    <tr><th>#</th><th>Attribute</th></tr>
-    <tr><td>0</td><td>Arched_Eyebrows</td></tr>
-    <tr><td>1</td><td>Attractive</td></tr>
-    <tr><td>2</td><td>Bangs</td></tr>
-    <tr><td>3</td><td>Blond_Hair</td></tr>
-    <tr><td>4</td><td>Eyeglasses</td></tr>
-    <tr><td>5</td><td>Heavy_Makeup</td></tr>
-    <tr><td>6</td><td>High_Cheekbones</td></tr>
-    <tr><td>7</td><td>Male</td></tr>
-    <tr><td>8</td><td>Mouth_Slightly_Open</td></tr>
-    <tr><td>9</td><td>No_Beard</td></tr>
-    <tr><td>10</td><td>Smiling</td></tr>
-    <tr><td>11</td><td>Wavy_Hair</td></tr>
-    <tr><td>12</td><td>Wearing_Hat</td></tr>
-    <tr><td>13</td><td>Wearing_Lipstick</td></tr>
-    <tr><td>14</td><td>Young</td></tr>
+    <tr><th>#</th><th>Attribute</th><th></th></tr>
+    <tr><td>0</td><td>Arched_Eyebrows</td><td></td></tr>
+    <tr><td>1</td><td>Attractive</td><td></td></tr>
+    <tr><td>2</td><td>Bangs</td><td></td></tr>
+    <tr><td>3</td><td>Blond_Hair</td><td></td></tr>
+    <tr><td>4</td><td>Eyeglasses</td><td></td></tr>
+    <tr><td>5</td><td>Heavy_Makeup</td><td></td></tr>
+    <tr><td>6</td><td>High_Cheekbones</td><td></td></tr>
+    <tr><td>7</td><td>Male</td><td></td></tr>
+    <tr><td>8</td><td>Mouth_Slightly_Open</td><td></td></tr>
+    <tr><td>9</td><td>No_Beard</td><td></td></tr>
+    <tr><td>10</td><td>Smiling</td><td></td></tr>
+    <tr><td>11</td><td>Wavy_Hair</td><td></td></tr>
+    <tr><td>12</td><td>Wearing_Hat</td><td></td></tr>
+    <tr><td>13</td><td>Wearing_Lipstick</td><td></td></tr>
+    <tr><td>14</td><td>Young</td><td></td></tr>
   </table>
 
   <p>
-    More than 200,000 facial images were transformed into line drawings—sets of sequential <em>(x, y)</em> points. These sequences were used as inputs for a Long Short-Term Memory (LSTM) neural network trained to identify the 15 attributes above. Each attribute became a neuron in the final layer of the model.
+    Close your eyes and imagine the idea of <em>eyeglasses</em>. Think about how that image exists within your mind — how it is stored and recalled. The FaCells illustrate, through accessible mathematics and visible process, how machines can learn to represent and retrieve visual ideas too.
   </p>
 
-  <p>
-    By hacking the network, it can be configured to <em>output</em> these attributes instead of simply classifying them. Attached to this deep neural network is the plotter, acting as a medium between the digital and physical worlds—translating learned representations into line portraits known as FaCells.
-  </p>
-
-  <p>
-    Close your eyes and imagine the visual idea of eyeglasses. Think about how that image “lives” in your brain—how it’s stored and retrieved. The FaCells show a simple yet tangible way—using accessible mathematics—of how machines can do something similar.
-  </p>
+  <iframe width="100%" height="460" src="https://www.youtube.com/embed/xZo7P7f4RV8" allowfullscreen></iframe>
 
   <section class="gallery">
     <h2 style="text-align:center;margin:10px 0 20px 0;">FaCells — 25 Samples</h2>
@@ -137,6 +126,14 @@
   </section>
 
   <footer>
+    <p><strong>Resources</strong></p>
+    <ul>
+      <li><a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank">Google Colab Notebook</a></li>
+      <li><a href="https://arxiv.org/pdf/2102.11361" target="_blank">Related Paper on arXiv</a></li>
+      <li><a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">CelebA Dataset</a> — provided by MMLab, CUHK.</li>
+      <li><a href="https://pypi.org/project/Hershey-Fonts/" target="_blank">Hershey Fonts</a> — public-domain vector fonts used for rendering line drawings.</li>
+    </ul>
+    <p>All derived works are shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
     <p>© 2025 Xavier Gonzalez — <em>FaCells: Teaching Machines the Language of Lines</em></p>
   </footer>
 
