@@ -21,7 +21,6 @@
       margin-bottom: 4px;
       font-size: 2.2em;
       font-weight: bold;
-      letter-spacing: 0.5px;
     }
     h2.subtitle {
       text-align: center;
@@ -30,24 +29,22 @@
       font-size: 1.2em;
       margin-top: 0;
       margin-bottom: 20px;
-      letter-spacing: 0.3px;
     }
-    p.notice {
-      text-align: center;
-      font-style: italic;
-      color: #666;
-      margin-bottom: 30px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95em;
+      background: #fff;
+      border: 1px solid #ccc;
     }
-    .links {
-      margin-bottom: 30px;
-      text-align: center;
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 10px;
+      text-align: left;
     }
-    .links a {
-      display: block;
-      margin: 10px 0;
-      color: #1a0dab;
-      text-decoration: none;
-      font-weight: 500;
+    th {
+      background-color: #eee;
     }
     iframe {
       display: block;
@@ -92,18 +89,6 @@
       background: #f2f2f2;
       border-radius: 0 0 12px 12px;
     }
-    footer a {
-      color: #1a0dab;
-      text-decoration: none;
-    }
-    footer ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-    footer li {
-      margin: 4px 0;
-    }
   </style>
 </head>
 <body>
@@ -112,22 +97,39 @@
   <h2 class="subtitle">Teaching Machines the Language of Lines</h2>
 
   <p>
-    <strong>Spectrum Miami</strong>, booth <strong>#1112</strong>. “FaCells” are portraits broken down into 15 facial attributes—arched eyebrows, bangs, eyeglasses, and more. The plotter acts as a performer, translating a neural network’s learned attributes into physical line drawings.
-  </p>
-  <p>
-    The network isn’t a typical image or text model. It’s trained purely on lines, with each attribute forming a “cell.” It’s an imperfect learner—reflecting our biases, like what we consider “attractive”—and it perceives only contours, not color. The goal isn’t perfection but to question how machines interpret human categories.
-  </p>
-  <p>
-    Each drawing—a FaCell—is unique, merging algorithmic and human perception. Come explore how machines learn to see at <strong>Spectrum Miami</strong>.
+    <strong>Spectrum Miami</strong>, booth <strong>#1112</strong>. The FaCells are essentially portraits of 15 different facial attributes. Each attribute corresponds to a neuron—a “cell”—in the last layer of a neural network trained to recognize them.
   </p>
 
-  <div class="links">
-    <a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank">View notebook on Google Colab</a>
-    <a href="https://arxiv.org/pdf/2102.11361" target="_blank">View related paper on arXiv</a>
-    <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">CelebA Dataset</a>
-  </div>
+  <table>
+    <tr><th>#</th><th>Attribute</th></tr>
+    <tr><td>0</td><td>Arched_Eyebrows</td></tr>
+    <tr><td>1</td><td>Attractive</td></tr>
+    <tr><td>2</td><td>Bangs</td></tr>
+    <tr><td>3</td><td>Blond_Hair</td></tr>
+    <tr><td>4</td><td>Eyeglasses</td></tr>
+    <tr><td>5</td><td>Heavy_Makeup</td></tr>
+    <tr><td>6</td><td>High_Cheekbones</td></tr>
+    <tr><td>7</td><td>Male</td></tr>
+    <tr><td>8</td><td>Mouth_Slightly_Open</td></tr>
+    <tr><td>9</td><td>No_Beard</td></tr>
+    <tr><td>10</td><td>Smiling</td></tr>
+    <tr><td>11</td><td>Wavy_Hair</td></tr>
+    <tr><td>12</td><td>Wearing_Hat</td></tr>
+    <tr><td>13</td><td>Wearing_Lipstick</td></tr>
+    <tr><td>14</td><td>Young</td></tr>
+  </table>
 
-  <iframe width="100%" height="480" src="https://www.youtube.com/embed/xZo7P7f4RV8" allowfullscreen></iframe>
+  <p>
+    More than 200,000 facial images were transformed into line drawings—sets of sequential <em>(x, y)</em> points. These sequences were used as inputs for a Long Short-Term Memory (LSTM) neural network trained to identify the 15 attributes above. Each attribute became a neuron in the final layer of the model.
+  </p>
+
+  <p>
+    By hacking the network, it can be configured to <em>output</em> these attributes instead of simply classifying them. Attached to this deep neural network is the plotter, acting as a medium between the digital and physical worlds—translating learned representations into line portraits known as FaCells.
+  </p>
+
+  <p>
+    Close your eyes and imagine the visual idea of eyeglasses. Think about how that image “lives” in your brain—how it’s stored and retrieved. The FaCells show a simple yet tangible way—using accessible mathematics—of how machines can do something similar.
+  </p>
 
   <section class="gallery">
     <h2 style="text-align:center;margin:10px 0 20px 0;">FaCells — 25 Samples</h2>
@@ -136,12 +138,6 @@
 
   <footer>
     <p>© 2025 Xavier Gonzalez — <em>FaCells: Teaching Machines the Language of Lines</em></p>
-    <p>This project incorporates elements from:</p>
-    <ul>
-      <li>• <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">CelebA Dataset</a> — provided by MMLab, CUHK.</li>
-      <li>• <a href="https://pypi.org/project/Hershey-Fonts/" target="_blank">Hershey Fonts</a> — public-domain vector fonts for rendering line drawings.</li>
-    </ul>
-    <p>All works shared under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>.</p>
   </footer>
 
   <script>
