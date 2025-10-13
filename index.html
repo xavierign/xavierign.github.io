@@ -21,9 +21,9 @@
     }
     h2.subtitle {
       text-align: center;
-      color: #555;
-      font-weight: normal;
-      font-size: 1.15em;
+      color: #444;
+      font-weight: 500;
+      font-size: 1.4em; /* larger subtitle */
       margin-top: 0;
       margin-bottom: 25px;
     }
@@ -42,9 +42,7 @@
       text-align: left;
     }
     th {background-color: #f0f0f0;}
-    td:nth-child(1){width:10%;}
-    td:nth-child(2){width:30%;}
-    td:nth-child(3){width:60%;}
+    td {width: 33%;}
     iframe {
       display: block;
       margin: 40px auto;
@@ -92,26 +90,25 @@
   <h2 class="subtitle">Teaching Machines the Language of Lines</h2>
 
   <p>
-    <strong>Spectrum Miami</strong>, booth <strong>#1112</strong> — The <em>FaCells</em> are portraits of 15 facial attributes learned by a neural network trained on line drawings. More than 200,000 images were converted into sets of lines — sequences of <em>(x, y)</em> points — and used as input for an LSTM model. Each attribute corresponds to one neuron, or “cell,” in the network’s final layer. By hacking the model, it can be made to <em>generate</em> attributes instead of just classifying them. The plotter connected to the system acts as a bridge between the digital and physical worlds, drawing each FaCell on paper as the network expresses what it has learned.
+    <strong>Spectrum Miami</strong>, booth <strong>#1112</strong> — The <em>FaCells</em> are portraits of 15 facial attributes learned by a neural network trained on line drawings. More than 200,000 images were converted into sets of lines — sequences of <em>(x, y)</em> points — and used as input for an LSTM model. Each attribute corresponds to one neuron, or “cell,” in the network’s final layer.
+  </p>
+
+  <p>
+    By hacking the model, it can be made to <em>generate</em> attributes instead of simply classifying them. The plotter connected to the system acts as a <strong>medium</strong> between the digital and the physical worlds, drawing each FaCell on paper as the network and the plotter express what they have learned — revealing their own distinctive <strong>style and aesthetic</strong>.
   </p>
 
   <table>
-    <tr><th>#</th><th>Attribute</th><th></th></tr>
-    <tr><td>0</td><td>Arched_Eyebrows</td><td></td></tr>
-    <tr><td>1</td><td>Attractive</td><td></td></tr>
-    <tr><td>2</td><td>Bangs</td><td></td></tr>
-    <tr><td>3</td><td>Blond_Hair</td><td></td></tr>
-    <tr><td>4</td><td>Eyeglasses</td><td></td></tr>
-    <tr><td>5</td><td>Heavy_Makeup</td><td></td></tr>
-    <tr><td>6</td><td>High_Cheekbones</td><td></td></tr>
-    <tr><td>7</td><td>Male</td><td></td></tr>
-    <tr><td>8</td><td>Mouth_Slightly_Open</td><td></td></tr>
-    <tr><td>9</td><td>No_Beard</td><td></td></tr>
-    <tr><td>10</td><td>Smiling</td><td></td></tr>
-    <tr><td>11</td><td>Wavy_Hair</td><td></td></tr>
-    <tr><td>12</td><td>Wearing_Hat</td><td></td></tr>
-    <tr><td>13</td><td>Wearing_Lipstick</td><td></td></tr>
-    <tr><td>14</td><td>Young</td><td></td></tr>
+    <tr>
+      <th>#</th><th>Attribute</th><th></th>
+    </tr>
+    <tr><td>0</td><td>Arched_Eyebrows</td><td>Attractive</td></tr>
+    <tr><td>1</td><td>Bangs</td><td>Blond_Hair</td></tr>
+    <tr><td>2</td><td>Eyeglasses</td><td>Heavy_Makeup</td></tr>
+    <tr><td>3</td><td>High_Cheekbones</td><td>Male</td></tr>
+    <tr><td>4</td><td>Mouth_Slightly_Open</td><td>No_Beard</td></tr>
+    <tr><td>5</td><td>Smiling</td><td>Wavy_Hair</td></tr>
+    <tr><td>6</td><td>Wearing_Hat</td><td>Wearing_Lipstick</td></tr>
+    <tr><td>7</td><td>Young</td><td></td></tr>
   </table>
 
   <p>
