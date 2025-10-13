@@ -50,8 +50,8 @@
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-      margin: 25px 0 60px 0;
+      gap: 8px; /* reduced margin */
+      margin: 15px 0 40px 0; /* reduced vertical space */
     }
     .photo-grid figure {
       margin: 0;
@@ -65,7 +65,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      clip-path: inset(5% 5% 5% 5%);
+      clip-path: inset(5% 5% 5% 5%); /* crop 5% each side */
       transition: transform .25s ease;
     }
     .photo-grid figure:hover img {transform: scale(1.03);}
@@ -123,7 +123,7 @@
   </table>
 
   <p>
-    Close your eyes and imagine the idea of <em>eyeglasses</em>. Think about how that image exists within your mind — how it is stored and recalled. The FaCells illustrate, through accessible mathematics and visible process, how machines can learn to represent and retrieve visual ideas too, using the language of lines.
+    Close your eyes and imagine the idea of <em>eyeglasses</em>. Think about how that image exists within your mind — how it is stored and recalled. The FaCells illustrate, through accessible mathematics and visible process, how machines can learn to represent and retrieve visual ideas too.
   </p>
 
   <iframe width="100%" height="460" src="https://www.youtube.com/embed/xZo7P7f4RV8" allowfullscreen></iframe>
