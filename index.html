@@ -6,39 +6,37 @@
   <style>
     body {
       font-family: 'Trebuchet MS', 'Verdana', sans-serif;
-      max-width: 850px;
-      margin: 40px auto;
-      padding: 0 25px;
-      background-color: #f7f7f7;
-      color: #333;
-      line-height: 1.6;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 28px 80px;
+      background: linear-gradient(180deg, #f9f9fb 0%, #f2f4ff 100%);
+      color: #2d2d2d;
+      line-height: 1.65;
     }
     h1 {
-      text-align: center;
-      margin-bottom: 5px;
-      font-size: 2.3em;
-      font-weight: bold;
+      margin: 0;
+      font-size: clamp(2.6rem, 3vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
     h2.subtitle {
-      text-align: center;
-      color: #444;
+      color: #3b3b55;
       font-weight: 500;
-      font-size: 1.4em;
-      margin-top: 0;
-      margin-bottom: 25px;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      margin: 6px 0 24px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 15px 0 25px 0;
-      font-size: 0.9em;
-      background: #fff;
-      border: 1px solid #ddd;
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #252547;
     }
-    td {
-      border: 1px solid #ddd;
-      padding: 6px 10px;
-      width: 33%;
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #333355;
+    }
+    p {
+      margin: 0 0 16px;
     }
     iframe {
       display: block;
@@ -46,6 +44,139 @@
       max-width: 100%;
       border: none;
       border-radius: 6px;
+    }
+    .hero {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 18px;
+      padding: 48px 36px;
+      box-shadow: 0 18px 40px rgba(83, 88, 205, 0.12);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(98, 119, 255, 0.2), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 99, 152, 0.2), transparent 45%);
+      z-index: 0;
+    }
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.75rem;
+      color: #7b7bb5;
+      margin-bottom: 20px;
+    }
+    .intro {
+      max-width: 620px;
+      margin: 0 auto 22px;
+      color: #3c3c5c;
+    }
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta,
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta {
+      background: #5358cd;
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(83, 88, 205, 0.25);
+    }
+    .ghost {
+      border: 2px solid #5358cd;
+      color: #5358cd;
+      background: transparent;
+    }
+    .cta:hover,
+    .ghost:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(83, 88, 205, 0.2);
+    }
+    main {
+      display: grid;
+      gap: 36px;
+    }
+    .event-card,
+    .invitation {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 14px 28px rgba(28, 43, 120, 0.09);
+      border: 1px solid rgba(83, 88, 205, 0.1);
+    }
+    .attributes {
+      background: #fefefe;
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid rgba(83, 88, 205, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(83, 88, 205, 0.06);
+    }
+    .attribute-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .attribute-grid li {
+      background: rgba(83, 88, 205, 0.08);
+      border-radius: 12px;
+      padding: 10px 12px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #2f2f4a;
+    }
+    .process {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .process-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+    .process-grid article {
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid rgba(83, 88, 205, 0.1);
+      box-shadow: 0 12px 20px rgba(53, 60, 140, 0.08);
+    }
+    .gallery {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 16px 34px rgba(15, 18, 45, 0.08);
+      border: 1px solid rgba(83, 88, 205, 0.1);
+      text-align: center;
+    }
+    .gallery h3 {
+      margin-bottom: 8px;
+    }
+    .gallery-intro {
+      color: #50507a;
+      margin-bottom: 20px;
     }
     .photo-grid {
       display: grid;
@@ -75,67 +206,118 @@
       color: #555;
       margin-top: 60px;
       padding-top: 25px;
-      border-top: 1px solid #ccc;
-      background: #f7f7f7;
+      border-top: 1px solid rgba(83, 88, 205, 0.2);
+      background: transparent;
     }
-    footer a {color: #1a0dab; text-decoration: none;}
+    footer a {color: #4a4fb6; text-decoration: none;}
+    footer a:hover {text-decoration: underline;}
+    @media (max-width: 640px) {
+      body {
+        padding: 24px 18px 60px;
+      }
+      .hero {
+        padding: 36px 22px;
+      }
+      .cta-group {
+        flex-direction: column;
+      }
+      .attribute-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>FaCells</h1>
-  <h2 class="subtitle">Teaching Machines the Language of Lines</h2>
+  <header class="hero" role="banner">
+    <p class="eyebrow">Art + Machine Intelligence</p>
+    <h1>FaCells</h1>
+    <h2 class="subtitle">Teaching Machines the Language of Lines</h2>
+    <p class="intro">
+      FaCells is an ongoing exploration of how neural networks can internalize and redraw the essential traits of portraiture.
+      The installation invites visitors to watch a plotter interpret facial attributes as flowing constellations of hand-drawn lines.
+    </p>
+    <div class="cta-group">
+      <a class="cta" href="mailto:xavierign@gmail.com">Book a studio visit</a>
+      <a class="ghost" href="#process">Learn about the process</a>
+    </div>
+  </header>
 
-  <p>
-    <strong>Spectrum Miami</strong> (December 3–7, 2025), booth <strong>#1112</strong> — The <em>FaCells</em> are portraits of 15 facial attributes learned by a neural network trained on line drawings. More than 200,000 images were converted into sets of lines — sequences of <em>(x, y)</em> points — and used as input for an LSTM model. Each attribute corresponds to one neuron, or “cell,” in the network’s final layer.
-  </p>
+  <main>
+    <section class="event-card" aria-labelledby="miami">
+      <h3 id="miami">See FaCells at Spectrum Miami</h3>
+      <p>
+        <strong>December 3–7, 2025 &middot; Booth #1112</strong>
+        — Discover fifteen living “cells” trained to recognize and regenerate facial attributes from over 200,000 hand-traced line drawings.
+        Each neuron captures an idea, from <em>arched eyebrows</em> to <em>eyeglasses</em>, composing portraits that hover between data and intuition.
+      </p>
+    </section>
 
-  <table>
-    <tr>
-      <td>0 – Arched_Eyebrows</td>
-      <td>1 – Attractive</td>
-      <td>2 – Bangs</td>
-    </tr>
-    <tr>
-      <td>3 – Blond_Hair</td>
-      <td>4 – Eyeglasses</td>
-      <td>5 – Heavy_Makeup</td>
-    </tr>
-    <tr>
-      <td>6 – High_Cheekbones</td>
-      <td>7 – Male</td>
-      <td>8 – Mouth_Slightly_Open</td>
-    </tr>
-    <tr>
-      <td>9 – No_Beard</td>
-      <td>10 – Smiling</td>
-      <td>11 – Wavy_Hair</td>
-    </tr>
-    <tr>
-      <td>12 – Wearing_Hat</td>
-      <td>13 – Wearing_Lipstick</td>
-      <td>14 – Young</td>
-    </tr>
-  </table>
+    <section class="attributes" aria-labelledby="cells">
+      <h3 id="cells">15 Neural Portrait Cells</h3>
+      <ul class="attribute-grid">
+        <li>0 — Arched Eyebrows</li>
+        <li>1 — Attractive</li>
+        <li>2 — Bangs</li>
+        <li>3 — Blond Hair</li>
+        <li>4 — Eyeglasses</li>
+        <li>5 — Heavy Makeup</li>
+        <li>6 — High Cheekbones</li>
+        <li>7 — Male</li>
+        <li>8 — Mouth Slightly Open</li>
+        <li>9 — No Beard</li>
+        <li>10 — Smiling</li>
+        <li>11 — Wavy Hair</li>
+        <li>12 — Wearing Hat</li>
+        <li>13 — Wearing Lipstick</li>
+        <li>14 — Young</li>
+      </ul>
+    </section>
 
-  <p>
-    By hacking the model, it can be made to <em>generate</em> attributes instead of simply classifying them. The plotter connected to the system acts as a <strong>medium</strong> between the digital and the physical worlds, drawing each FaCell on paper as the network and the plotter express what they have learned — revealing their own distinctive <strong>style and aesthetic</strong>.
-  </p>
+    <section id="process" class="process" aria-labelledby="process-title">
+      <h3 id="process-title">How the drawings come alive</h3>
+      <div class="process-grid">
+        <article>
+          <h4>Learning the language</h4>
+          <p>
+            Line drawings distilled from portrait datasets are translated into sequences of <em>(x, y)</em> coordinates.
+            A recurrent neural network studies these gestures, encoding subtle rhythms in the way we sketch eyes, lips, and contours.
+          </p>
+        </article>
+        <article>
+          <h4>Hacking the neurons</h4>
+          <p>
+            Instead of stopping at classification, the model is coaxed into <strong>generating</strong> new combinations of attributes.
+            Each neuron becomes a creative collaborator, remixing traits into portraits that feel simultaneously familiar and alien.
+          </p>
+        </article>
+        <article>
+          <h4>From code to paper</h4>
+          <p>
+            A pen plotter connected to the system acts as the medium between digital memory and physical ink.
+            Visitors watch FaCells render in real time, revealing the cadence of the machine as it drafts each curve.
+          </p>
+        </article>
+      </div>
+    </section>
 
-  <p>
-    Close your eyes and imagine the idea of <em>eyeglasses</em>. Think about how that image exists within your mind — how it is stored and recalled. The FaCells illustrate, through accessible mathematics and visible process, how machines can learn to represent and retrieve visual ideas too, using the language of lines.
-  </p>
+    <section class="invitation" aria-labelledby="invitation-title">
+      <h3 id="invitation-title">An invitation to imagine</h3>
+      <p>
+        Close your eyes and picture the concept of <em>eyeglasses</em>. FaCells makes that mental image visible, showing how machines can store, recall,
+        and reinterpret visual ideas through accessible mathematics and a tangible drawing process.
+        The work resists commodification—each piece is gifted to guests who share their experience from the booth. <strong>Come visit and claim one.</strong>
+      </p>
+    </section>
 
-  <p>
-    The FaCells is one of the earliest art installations where AI stands as the main element — and they’re not for sale. If you want one, you need to attend Spectrum and make a post on social media. <strong>Come visit!</strong>
-  </p>
+    <iframe width="100%" height="460" src="https://www.youtube.com/embed/xZo7P7f4RV8" allowfullscreen title="FaCells installation video"></iframe>
 
-  <iframe width="100%" height="460" src="https://www.youtube.com/embed/xZo7P7f4RV8" allowfullscreen></iframe>
-
-  <section class="gallery">
-    <h2 style="text-align:center;margin:10px 0 20px 0;">FaCells — 25 Samples</h2>
-    <div id="photoGrid" class="photo-grid" aria-label="Photo grid"></div>
-  </section>
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h3 id="gallery-title">FaCells — 25 Samples</h3>
+      <p class="gallery-intro">Refresh the page to reshuffle a selection of drawings generated by the network.</p>
+      <div id="photoGrid" class="photo-grid" aria-label="Photo grid"></div>
+    </section>
+  </main>
 
   <footer>
     <p><strong>Resources</strong></p>
