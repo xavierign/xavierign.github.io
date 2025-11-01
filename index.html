@@ -151,7 +151,22 @@
       • <a href="mailto:xavierign@gmail.com" title="Contact Xavier" style="color:#999; text-decoration:none;">xavierign@gmail.com</a>
     </p>
   </footer>
-
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xblppwlv"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
   <script>
     const BASE = "data/photos/";
     const files = [
@@ -181,6 +196,7 @@
       grid.appendChild(fig);
     });
   </script>
+  
 
 </body>
 </html>
