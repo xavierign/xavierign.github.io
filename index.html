@@ -156,17 +156,19 @@
   action="https://formspree.io/f/xblppwlv"
   method="POST"
 >
-  <label>
-    Your email:
-    <input type="email" name="email">
+ <label>
+    Name:
+    <input type="text" name="name" required>
   </label>
   <label>
-    Your message:
-    <textarea name="message"></textarea>
+    Message:
+    <textarea name="message" rows="4" required></textarea>
   </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+  <input type="hidden" name="_subject" value="New Guestbook Entry">
+  <input type="hidden" name="_redirect" value="https://facells.com/thank-you.html">
+  <button type="submit">Sign the Guestbook</button>
 </form>
+  
   <script>
     const BASE = "data/photos/";
     const files = [
