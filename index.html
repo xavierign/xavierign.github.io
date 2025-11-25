@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FaCells — Teaching Machines the Language of Lines</title>
+  <title>FaCells at Spectrum Miami</title>
   <style>
     body {
       font-family: 'Trebuchet MS', 'Verdana', sans-serif;
@@ -83,51 +83,45 @@
 </head>
 <body>
 
-  <h1>FaCells</h1>
-  <h2 class="subtitle">Teaching Machines the Language of Lines</h2>
+  <h1>FaCells at Spectrum Miami</h1>
+  <h2 class="subtitle">December 3–7, 2025 — Booth #1112</h2>
 
   <p>
-    <strong>Spectrum Miami</strong> (December 3–7, 2025), booth <strong>#1112</strong> — The <em>FaCells</em> are portraits of 15 facial attributes learned by a neural network trained on line drawings. More than 200,000 images were converted into sets of lines — sequences of <em>(x, y)</em> points — and used as input for an LSTM model. Each attribute corresponds to one neuron, or “cell,” in the network’s final layer.
+    FaCells is an early AI-driven drawing installation in which a learned model, rather than a human hand, is the main image-maker.
+    The project is documented in a companion paper on <a href="https://arxiv.org/pdf/2102.11361" target="_blank" rel="noopener noreferrer">arXiv</a>.
   </p>
 
-  <table>
-    <tr>
-      <td>0 – Arched_Eyebrows</td>
-      <td>1 – Attractive</td>
-      <td>2 – Bangs</td>
-    </tr>
-    <tr>
-      <td>3 – Blond_Hair</td>
-      <td>4 – Eyeglasses</td>
-      <td>5 – Heavy_Makeup</td>
-    </tr>
-    <tr>
-      <td>6 – High_Cheekbones</td>
-      <td>7 – Male</td>
-      <td>8 – Mouth_Slightly_Open</td>
-    </tr>
-    <tr>
-      <td>9 – No_Beard</td>
-      <td>10 – Smiling</td>
-      <td>11 – Wavy_Hair</td>
-    </tr>
-    <tr>
-      <td>12 – Wearing_Hat</td>
-      <td>13 – Wearing_Lipstick</td>
-      <td>14 – Young</td>
-    </tr>
+  <p>
+    The FaCells are portraits of 15 facial attributes learned by a neural network trained on line drawings. More than 200,000 images
+    were converted into sets of lines—sequences of <em>(x, y)</em> points—and used as input for an LSTM model. Each attribute corresponds
+    to one neuron, or “cell,” in the network’s final layer.
+  </p>
+
+  <table aria-label="Attribute table placeholder">
+    <tr><td colspan="3" style="text-align:center; font-style:italic;">(attribute table placeholder)</td></tr>
   </table>
 
   <p>
-    By hacking the model, it can be made to <em>generate</em> attributes instead of simply classifying them. The plotter connected to the system acts as a <strong>medium</strong> between the digital and the physical worlds, drawing each FaCell on paper as the network and the plotter express what they have learned — revealing their own distinctive <strong>style and aesthetic</strong>.
+    At Spectrum Miami, FaCells is presented as a passage from dataset to drawing: code organizes thousands of portraits into sequences of lines,
+    and a plotter inscribes those lines on paper. The plotter acts as a medium between the digital model and the physical page, showing how a learned
+    representation can produce drawings with simple, reproducible procedures.
   </p>
 
   <p>
-    Close your eyes and imagine the idea of <em>eyeglasses</em>. Think about how that image exists within your mind — how it is stored and recalled. The FaCells illustrate, through accessible mathematics and visible process, how machines can learn to represent and retrieve visual ideas too, using the language of lines.
+    Gallery labels use a compact syntax to connect what is on the wall to how it was generated. For example, “FaCell 4 — Eyeglasses th8.0 maxl2500 s0” refers
+    to the FaCell built from Dense output cell 4 (the CelebA attribute Eyeglasses). “th8.0” is the per-point threshold at the Dense output;
+    “maxl2500” limits the number of line segments; and “s0” is the random seed used for selection and ordering.
   </p>
 
   <p>
-    The FaCells is one of the earliest art installations where AI stands as the main element — and they’re not for sale. If you want one, you need to attend Spectrum and make a post on social media. <strong>Come visit!</strong>
+    Letter-size FaCells portraits are offered to visitors during the show. They are not for sale in the usual sense: the price is a public social-media post using the hashtags
+    #FaCells and #SpectrumMiami. If you want one, you need to visit the booth and make a post. Each drawing leaves as a physical keepsake while re-entering the digital stream
+    through the visitor’s post.
+  </p>
+
+  <p>
+    Close your eyes and imagine the idea of eyeglasses—not one particular pair, but a general shape that stands for all of them. FaCells illustrates, through accessible mathematics
+    and a visible process, how machines can also learn to represent and retrieve visual ideas, moving from data → model → line → paper → social post.
   </p>
 
   <iframe width="100%" height="460" src="https://www.youtube.com/embed/xZo7P7f4RV8" allowfullscreen></iframe>
@@ -140,12 +134,12 @@
   <footer>
     <p><strong>Resources</strong></p>
     <ul>
-      <li><a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank">Google Colab Notebook</a></li>
-      <li><a href="https://arxiv.org/pdf/2102.11361" target="_blank">Related Paper on arXiv</a></li>
-      <li><a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank">CelebA Dataset</a> — provided by MMLab, CUHK.</li>
-      <li><a href="https://pypi.org/project/Hershey-Fonts/" target="_blank">Hershey Fonts</a> — public-domain vector fonts used for rendering line drawings.</li>
+      <li><a href="https://colab.research.google.com/drive/1ukFNX-6jDSIvGWmwToiVa7tv9NL1F4bY?usp=sharing" target="_blank" rel="noopener noreferrer">Google Colab Notebook</a></li>
+      <li><a href="https://arxiv.org/pdf/2102.11361" target="_blank" rel="noopener noreferrer">Related Paper on arXiv</a></li>
+      <li><a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank" rel="noopener noreferrer">CelebA Dataset</a> — provided by MMLab, CUHK.</li>
+      <li><a href="https://pypi.org/project/Hershey-Fonts/" target="_blank" rel="noopener noreferrer">Hershey Fonts</a> — public-domain vector fonts used for rendering line drawings.</li>
     </ul>
-    <p>All derived works are shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+    <p>All derived works are shared under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
     <p style="text-align:right; font-size:0.8em; color:#777;">
       © 2025 Xavier Gonzalez — <em>FaCells: Teaching Machines the Language of Lines</em>
       • <a href="mailto:xavierign@gmail.com" title="Contact Xavier" style="color:#999; text-decoration:none;">xavierign@gmail.com</a>
@@ -168,7 +162,7 @@
   <input type="hidden" name="_redirect" value="https://facells.com/thank-you.html">
   <button type="submit">Sign the Guestbook</button>
 </form>
-  
+
   <script>
     const BASE = "data/photos/";
     const files = [
@@ -198,7 +192,5 @@
       grid.appendChild(fig);
     });
   </script>
-  
-
 </body>
 </html>
